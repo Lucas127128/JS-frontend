@@ -10,3 +10,27 @@ padding:30px;
 margin-top: 50px;
 border-radius:20px;
 }
+.Text_Input{
+display:flex;
+border-radius: 25px;
+overflow:hidden;
+justify-content : center;
+}
+.TextInput{
+flex: grow 1;
+border: none;
+background-color: #f0f4f8;
+padding: 10px 15px;
+outline: none;
+border-radius: 25px;
+overflow:hidden;
+}
+.Button{
+background-color: #00c787;
+border:none;
+color: white;
+padding:10px 15px;
+cursor: pointer;
+border-radius: 25px;
+overflow:hidden;
+}
