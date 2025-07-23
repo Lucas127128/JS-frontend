@@ -3,3 +3,7 @@ background-color: #00c787;
 display: flex;
 justify-content : center;
 }
+.ControlPanel{
+background-color: white;
+width:300px
+}
