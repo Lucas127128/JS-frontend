@@ -8,7 +8,7 @@ if(TextInput.value===''){
 }
 const Tasks = document.createElement('li')
 Tasks.innerHTML = ` <input type = 'checkbox' class='Checkbox'>
-<lable>${TextInput.value}</lable>
+<lable><span>${TextInput.value}</span></lable>
 <button class = 'Trash'>🗑️</button>
 `
 const Trash = Tasks.querySelector('.Trash')

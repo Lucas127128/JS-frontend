@@ -34,3 +34,28 @@ cursor: pointer;
 border-radius: 25px;
 overflow:hidden;
 }
+.Lists{
+    list-style-type: none;
+    padding:10;
+}
+.Lists li {
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+.Lists label{
+    flex-grow: 1;
+}
+.Checkbox{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.Trash{
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.Trash:hover{
+    opacity: 1;
+}
