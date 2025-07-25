@@ -24,6 +24,7 @@ function DecideWhoWin(){
     }
     window.alert(`${Result}
 The computer choice is ${ComputerChoice}.`)
+location.reload();
 
 }
 Rock.addEventListener('click', function(){
