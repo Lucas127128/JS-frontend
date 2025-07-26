@@ -1,9 +1,15 @@
 const Rock = document.querySelector('.Rock')
 const Paper = document.querySelector('.Paper')
 const Scissors = document.querySelector('.Scissors')
-const RockPaperScissors = ['Rock', 'Paper', 'Scissors'];
-const randomIndex = Math.floor(Math.random() * RockPaperScissors.length);
-let ComputerChoice = RockPaperScissors[randomIndex]
+let RockPaperScissors = ""
+let randomIndex = 0
+let ComputerChoice = ''
+function GenerateRandomChoice() {
+    RockPaperScissors = ['Rock', 'Paper', 'Scissors'];
+    randomIndex = Math.floor(Math.random() * RockPaperScissors.length);
+    ComputerChoice = RockPaperScissors[randomIndex]
+}
+GenerateRandomChoice()
 let UserChoice = ''
 let Result = ''
 function DecideWhoWin(){
@@ -24,19 +30,24 @@ function DecideWhoWin(){
     }
     window.alert(`${Result}
 The computer choice is ${ComputerChoice}.`)
-location.reload();
 
 }
 Rock.addEventListener('click', function(){
 UserChoice = 'Rock'
 DecideWhoWin()
+GenerateRandomChoice()
+console.log(ComputerChoice)
 })
 Paper.addEventListener('click', function(){
 UserChoice = 'Paper'
 DecideWhoWin()
+GenerateRandomChoice()
+console.log(ComputerChoice)
 })
 Scissors.addEventListener('click', function(){
 UserChoice = 'Scissors'
 DecideWhoWin()
+GenerateRandomChoice()
+console.log(ComputerChoice)
 })
 console.log(ComputerChoice)
