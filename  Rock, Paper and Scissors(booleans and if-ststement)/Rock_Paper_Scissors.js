@@ -12,20 +12,20 @@ function GenerateRandomChoice() {
 GenerateRandomChoice()
 let UserChoice = ''
 let Result = ''
-function DecideWhoWin(){
-    if(ComputerChoice===UserChoice){
+function DecideWhoWin(PlayerMove = UserChoice){
+    if(ComputerChoice===PlayerMove){
         Result = "Tie!"
-    }else if(ComputerChoice==='Rock' && UserChoice==='Scissors'){
+    } else if(ComputerChoice==='Rock' && PlayerMove==='Scissors'){
         Result = 'You lose!'
-    }else if(ComputerChoice==='Rock' && UserChoice==='Paper'){
+    }else if(ComputerChoice==='Rock' && PlayerMove==='Paper'){
         Result = 'You win!'
-    }else if(ComputerChoice==='Scissors' && UserChoice==='Paper'){
+    }else if(ComputerChoice==='Scissors' && PlayerMove==='Paper'){
         Result = 'You lose!'
-    }else if(ComputerChoice==='Scissors' && UserChoice==='Rock'){
-        Result = 'You win!'
-    }else if(ComputerChoice==='Paper' && UserChoice==='Rock'){
+    }else if(ComputerChoice==='Scissors' && PlayerMove==='Rock'){
+                Result = 'You win!'
+    }else if(ComputerChoice==='Paper' && PlayerMove==='Rock'){
         Result = 'You lose!'
-    }else if(ComputerChoice==='Paper' && UserChoice==='Scissors'){
+    }else if(ComputerChoice==='Paper' && PlayerMove==='Scissors'){
         Result = 'You win!'
     }
     window.alert(`${Result}
