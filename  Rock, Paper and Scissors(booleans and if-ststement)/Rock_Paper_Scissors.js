@@ -23,6 +23,7 @@ if(Score === null){
         ties: 0
     }
 }
+
 function DecideWhoWin(PlayerMove = UserChoice){
     if(ComputerChoice===PlayerMove){
         Result = "Tie!"
@@ -51,8 +52,8 @@ function DecideWhoWin(PlayerMove = UserChoice){
 The computer choice is ${ComputerChoice}.
 Wins: ${Score.wins}     Losses: ${Score.losses}     Ties: ${Score.ties}
 `)
-
 }
+
 Rock.addEventListener('click', function(){
 UserChoice = 'Rock'
 DecideWhoWin()
