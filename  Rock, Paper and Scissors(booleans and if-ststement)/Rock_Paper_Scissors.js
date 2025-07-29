@@ -13,11 +13,9 @@ function GenerateRandomChoice() {
 GenerateRandomChoice()
 let UserChoice = ''
 let Result = ''
-const Score = {
-    wins:0,
-    losses:0,
-    ties:0
-}
+const Score = JSON.parse(
+localStorage.getItem('Score')
+)
 function DecideWhoWin(PlayerMove = UserChoice){
     if(ComputerChoice===PlayerMove){
         Result = "Tie!"
@@ -53,22 +51,32 @@ UserChoice = 'Rock'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
+localStorage.setItem('Score', JSON.stringify(Score))
+console.log(localStorage.getItem('Score'))
 })
 Paper.addEventListener('click', function(){
 UserChoice = 'Paper'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
+localStorage.setItem('Score', JSON.stringify(Score))
+console.log(localStorage.getItem('Score'))
 })
 Scissors.addEventListener('click', function(){
 UserChoice = 'Scissors'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
+localStorage.setItem('Score', JSON.stringify(Score))
+console.log(localStorage.getItem('Score'))
 })
 Reset.addEventListener('click', function(){
 Score.wins = 0
 Score.ties = 0
 Score.losses = 0
+localStorage.setItem('Score', JSON.stringify(Score))
+console.log(localStorage.getItem('Score'))
 })
 console.log(ComputerChoice)
+localStorage.setItem('Score', JSON.stringify(Score))
+console.log(localStorage.getItem('Score'))
