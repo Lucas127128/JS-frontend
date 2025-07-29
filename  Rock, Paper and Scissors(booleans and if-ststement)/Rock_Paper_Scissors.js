@@ -13,9 +13,16 @@ function GenerateRandomChoice() {
 GenerateRandomChoice()
 let UserChoice = ''
 let Result = ''
-const Score = JSON.parse(
+let Score = JSON.parse(
 localStorage.getItem('Score')
 )
+if(Score === null){
+    Score = {
+        wins: 0,
+        losses: 0,
+        ties: 0
+    }
+}
 function DecideWhoWin(PlayerMove = UserChoice){
     if(ComputerChoice===PlayerMove){
         Result = "Tie!"
