@@ -6,9 +6,13 @@ button {
 width: 200px; 
 height: 50px; 
 border-radius: 18px;
-font-size: 20px;
+font-size: 35px;
 border: #0e0601;
 cursor: pointer;
 background-color: #f2762e;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.Reset{
+background-color: #4bbfbf;
+font-size: 28px;
 }
