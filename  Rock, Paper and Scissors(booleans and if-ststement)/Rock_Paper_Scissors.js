@@ -1,6 +1,7 @@
 const Rock = document.querySelector('.Rock')
 const Paper = document.querySelector('.Paper')
 const Scissors = document.querySelector('.Scissors')
+const Reset = document.querySelector('.Reset')
 let RockPaperScissors = ""
 let randomIndex = 0
 let ComputerChoice = ''
@@ -64,5 +65,10 @@ UserChoice = 'Scissors'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
+})
+Reset.addEventListener('click', function(){
+Score.wins = 0
+Score.ties = 0
+Score.losses = 0
 })
 console.log(ComputerChoice)
