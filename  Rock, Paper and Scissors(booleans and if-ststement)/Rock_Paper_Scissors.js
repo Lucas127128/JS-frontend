@@ -12,6 +12,11 @@ function GenerateRandomChoice() {
 GenerateRandomChoice()
 let UserChoice = ''
 let Result = ''
+const Score = {
+    wins:0,
+    losses:0,
+    ties:0
+}
 function DecideWhoWin(PlayerMove = UserChoice){
     if(ComputerChoice===PlayerMove){
         Result = "Tie!"
@@ -22,14 +27,24 @@ function DecideWhoWin(PlayerMove = UserChoice){
     }else if(ComputerChoice==='Scissors' && PlayerMove==='Paper'){
         Result = 'You lose!'
     }else if(ComputerChoice==='Scissors' && PlayerMove==='Rock'){
-                Result = 'You win!'
+        Result = 'You win!'
     }else if(ComputerChoice==='Paper' && PlayerMove==='Rock'){
         Result = 'You lose!'
     }else if(ComputerChoice==='Paper' && PlayerMove==='Scissors'){
         Result = 'You win!'
     }
+
+    if(Result === 'You win!'){
+        Score.wins +=1
+    }else if(Result === 'You lose!'){
+        Score.losses +=1
+    }else if(Result === "Tie!"){
+        Score.ties +=1
+    }
     window.alert(`${Result}
-The computer choice is ${ComputerChoice}.`)
+The computer choice is ${ComputerChoice}.
+Wins: ${Score.wins}     Losses: ${Score.losses}     Ties: ${Score.ties}
+`)
 
 }
 Rock.addEventListener('click', function(){
