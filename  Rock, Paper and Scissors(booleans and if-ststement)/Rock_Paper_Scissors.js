@@ -2,6 +2,7 @@ const Rock = document.querySelector('.Rock')
 const Paper = document.querySelector('.Paper')
 const Scissors = document.querySelector('.Scissors')
 const Reset = document.querySelector('.Reset')
+const DisplayScore = document.querySelector('.DisplayScore')
 let RockPaperScissors = ""
 let randomIndex = 0
 let ComputerChoice = ''
@@ -61,6 +62,9 @@ GenerateRandomChoice()
 console.log(ComputerChoice)
 localStorage.setItem('Score', JSON.stringify(Score))
 console.log(localStorage.getItem('Score'))
+DisplayScore.innerHTML = `Wins:      ${Score.wins},                     
+Losses:      ${Score.losses},                        
+Ties:        ${Score.ties}           `
 })
 Paper.addEventListener('click', function(){
 UserChoice = 'Paper'
@@ -69,6 +73,9 @@ GenerateRandomChoice()
 console.log(ComputerChoice)
 localStorage.setItem('Score', JSON.stringify(Score))
 console.log(localStorage.getItem('Score'))
+DisplayScore.innerHTML = `Wins:      ${Score.wins},                  
+Losses:      ${Score.losses},                        
+Ties:        ${Score.ties}         `
 })
 Scissors.addEventListener('click', function(){
 UserChoice = 'Scissors'
@@ -77,6 +84,9 @@ GenerateRandomChoice()
 console.log(ComputerChoice)
 localStorage.setItem('Score', JSON.stringify(Score))
 console.log(localStorage.getItem('Score'))
+DisplayScore.innerHTML = `Wins:     ${Score.wins},                  
+Losses:     ${Score.losses},                         
+Ties:      ${Score.ties}         `
 })
 Reset.addEventListener('click', function(){
 Score.wins = 0
@@ -84,6 +94,9 @@ Score.ties = 0
 Score.losses = 0
 localStorage.setItem('Score', JSON.stringify(Score))
 console.log(localStorage.getItem('Score'))
+DisplayScore.innerHTML = `Wins:      ${Score.wins},                   
+Losses:      ${Score.losses},                        
+Ties:    ${Score.ties}        `
 })
 console.log(ComputerChoice)
 localStorage.setItem('Score', JSON.stringify(Score))
