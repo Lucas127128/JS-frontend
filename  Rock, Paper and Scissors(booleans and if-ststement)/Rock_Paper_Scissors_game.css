@@ -3,16 +3,22 @@ background-color: #f2ca50;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 button {
-width: 200px; 
-height: 50px; 
-border-radius: 18px;
-font-size: 35px;
+width: 130px; 
+height: 130px; 
+border-radius: 50%;
+font-size: 91px;
 border: #0e0601;
 cursor: pointer;
 background-color: #f2762e;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+margin-left: 21px;
+margin-right: 21px;
 }
 .Reset{
 background-color: #4bbfbf;
 font-size: 28px;
+width: 200px; 
+height: 50px; 
+border-radius: 13px;
+margin-left: 2px;
 }
