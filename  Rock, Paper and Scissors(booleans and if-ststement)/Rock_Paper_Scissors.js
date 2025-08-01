@@ -2,7 +2,9 @@ const Rock = document.querySelector('.Rock')
 const Paper = document.querySelector('.Paper')
 const Scissors = document.querySelector('.Scissors')
 const Reset = document.querySelector('.Reset')
-const DisplayScore = document.querySelector('.DisplayScore')
+const DisplayScore1 = document.querySelector('.DisplayScore1')
+const DisplayScore2 = document.querySelector('.DisplayScore2')
+const DisplayScore3 = document.querySelector('.DisplayScore3')
 let RockPaperScissors = ""
 let randomIndex = 0
 let ComputerChoice = ''
@@ -55,48 +57,40 @@ Wins: ${Score.wins}     Losses: ${Score.losses}     Ties: ${Score.ties}
 `)
 }
 
+function SetLocalStorageAndDisplayScore(){
+    localStorage.setItem('Score', JSON.stringify(Score))
+    console.log(localStorage.getItem('Score'))
+    DisplayScore1.innerHTML = `Wins:${Score.wins}`                   
+    DisplayScore2.innerHTML = `Losses:${Score.losses}`                        
+    DisplayScore3.innerHTML = `Ties:${Score.ties}`
+}
+
 Rock.addEventListener('click', function(){
 UserChoice = 'Rock'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
-localStorage.setItem('Score', JSON.stringify(Score))
-console.log(localStorage.getItem('Score'))
-DisplayScore.innerHTML = `Wins:      ${Score.wins},                     
-Losses:      ${Score.losses},                        
-Ties:        ${Score.ties}           `
+SetLocalStorageAndDisplayScore()
 })
 Paper.addEventListener('click', function(){
 UserChoice = 'Paper'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
-localStorage.setItem('Score', JSON.stringify(Score))
-console.log(localStorage.getItem('Score'))
-DisplayScore.innerHTML = `Wins:      ${Score.wins},                  
-Losses:      ${Score.losses},                        
-Ties:        ${Score.ties}         `
+SetLocalStorageAndDisplayScore()
 })
 Scissors.addEventListener('click', function(){
 UserChoice = 'Scissors'
 DecideWhoWin()
 GenerateRandomChoice()
 console.log(ComputerChoice)
-localStorage.setItem('Score', JSON.stringify(Score))
-console.log(localStorage.getItem('Score'))
-DisplayScore.innerHTML = `Wins:     ${Score.wins},                  
-Losses:     ${Score.losses},                         
-Ties:      ${Score.ties}         `
+SetLocalStorageAndDisplayScore()
 })
 Reset.addEventListener('click', function(){
 Score.wins = 0
 Score.ties = 0
 Score.losses = 0
-localStorage.setItem('Score', JSON.stringify(Score))
-console.log(localStorage.getItem('Score'))
-DisplayScore.innerHTML = `Wins:      ${Score.wins},                   
-Losses:      ${Score.losses},                        
-Ties:    ${Score.ties}        `
+SetLocalStorageAndDisplayScore()     
 })
 console.log(ComputerChoice)
 localStorage.setItem('Score', JSON.stringify(Score))
