@@ -30,7 +30,7 @@ function DeleteTodoItems(index){
     TodoItemAndDate.splice(index, 1);
     DisplayTodoItems();
 }   
-Button.addEventListener('click' ,function(){
+function NewTasks(){
     if(ToDoItem.value===''){
         alert('Please type todo items.')
         return;
@@ -42,5 +42,18 @@ Button.addEventListener('click' ,function(){
     ToDoItem.value=''
     DueDate.value = ''
     console.log(TodoItemAndDate)
+}
+Button.addEventListener('click' ,function(){
+    NewTasks()
+})
+ToDoItem.addEventListener("keyup", function(e){
+    if(e.key==="Enter"){
+        NewTasks()
+    }
+})
+DueDate.addEventListener("keyup", function(e){
+    if(e.key==="Enter"){
+        NewTasks()
+    }
 })
 console.log(TodoItemAndDate)
