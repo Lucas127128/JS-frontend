@@ -13,14 +13,16 @@ function DisplayTodoItems() {
          TodoItems = TodoItemAndDate[i].TheTodoItems
          DueDates = TodoItemAndDate[i].TodoDate
          DisplayTheTodoList.innerHTML += `
-        <div>
-            <div>${TodoItems}</div>
-            <div>${DueDates}</div>
-            <button class="DeleteTodoItems" onclick = "
-            DeleteTodoItems(${i})
-            ">
-            Delete
-            </button>
+        <div class = "Todo-Row">
+            <p>
+                <span class = "Todo-items">${TodoItems}</span>
+                <span class = "Due-Dates">${DueDates}</span>
+                <button class="DeleteTodoItems" onclick = "
+                DeleteTodoItems(${i})
+                ">
+                <span>Delete</span> 
+                </button>
+            </p>
         </div>
         `
     }
