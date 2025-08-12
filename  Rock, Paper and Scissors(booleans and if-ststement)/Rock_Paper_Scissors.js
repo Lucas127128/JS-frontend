@@ -5,6 +5,8 @@ const Reset = document.querySelector('.Reset')
 const DisplayScore1 = document.querySelector('.DisplayScore1')
 const DisplayScore2 = document.querySelector('.DisplayScore2')
 const DisplayScore3 = document.querySelector('.DisplayScore3')
+const DisplayResult = document.querySelector('.DisplayResult')
+const DisplayComputerMove = document.querySelector('.DisplayComputerMove')
 let RockPaperScissors = ""
 let randomIndex = 0
 let ComputerChoice = ''
@@ -51,15 +53,21 @@ function DecideWhoWin(PlayerMove = UserChoice){
     }else if(Result === "Tie!"){
         Score.ties +=1
     }
-    window.alert(`${Result}
-The computer choice is ${ComputerChoice}.
-Wins: ${Score.wins}     Losses: ${Score.losses}     Ties: ${Score.ties}
-`)
-}
+    }
 
 function SetLocalStorageAndDisplayScore(){
     localStorage.setItem('Score', JSON.stringify(Score))
     console.log(localStorage.getItem('Score'))
+    
+    DisplayResult.innerHTML=`${Result}`
+    if(ComputerChoice==='Rock'){
+        DisplayComputerMove.innerHTML = `The computer move is ✊`
+    }else if (ComputerChoice==='Paper'){
+        DisplayComputerMove.innerHTML = `The computer move is 🖐️`
+    }else if (ComputerChoice==='Scissors'){
+        DisplayComputerMove.innerHTML = `The computer move is ✌️`
+    }
+
     DisplayScore1.innerHTML = `Wins:${Score.wins}`                   
     DisplayScore2.innerHTML = `Losses:${Score.losses}`                        
     DisplayScore3.innerHTML = `Ties:${Score.ties}`
