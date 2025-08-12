@@ -23,6 +23,14 @@ height: 50px;
 border-radius: 13px;
 margin-left: 2px;
 }
+.AutoPlay{
+background-color: #4bbfbf;
+font-size: 28px;
+width: 200px; 
+height: 50px; 
+border-radius: 13px;
+margin-left: 2px;
+}
 .ScoreAndResult{
     color: white;
 }

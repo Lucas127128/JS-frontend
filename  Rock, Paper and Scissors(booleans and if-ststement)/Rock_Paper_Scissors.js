@@ -2,6 +2,7 @@ const Rock = document.querySelector('.Rock')
 const Paper = document.querySelector('.Paper')
 const Scissors = document.querySelector('.Scissors')
 const Reset = document.querySelector('.Reset')
+const AutoPlay = document.querySelector('.AutoPlay')
 const DisplayScore1 = document.querySelector('.DisplayScore1')
 const DisplayScore2 = document.querySelector('.DisplayScore2')
 const DisplayScore3 = document.querySelector('.DisplayScore3')
@@ -14,6 +15,11 @@ function GenerateRandomChoice() {
     RockPaperScissors = ['Rock', 'Paper', 'Scissors'];
     randomIndex = Math.floor(Math.random() * RockPaperScissors.length);
     ComputerChoice = RockPaperScissors[randomIndex]
+}
+function GenerateUserRandomChoice(){
+    RockPaperScissors = ['Rock', 'Paper', 'Scissors'];
+    randomIndex = Math.floor(Math.random() * RockPaperScissors.length);
+    UserChoice = RockPaperScissors[randomIndex]
 }
 GenerateRandomChoice()
 let UserChoice = ''
@@ -74,31 +80,50 @@ function SetLocalStorageAndDisplayScore(){
 }
 
 Rock.addEventListener('click', function(){
-UserChoice = 'Rock'
-DecideWhoWin()
-GenerateRandomChoice()
-console.log(ComputerChoice)
-SetLocalStorageAndDisplayScore()
+    UserChoice = 'Rock'
+    DecideWhoWin()
+    GenerateRandomChoice()
+    console.log(ComputerChoice)
+    SetLocalStorageAndDisplayScore()
 })
 Paper.addEventListener('click', function(){
-UserChoice = 'Paper'
-DecideWhoWin()
-GenerateRandomChoice()
-console.log(ComputerChoice)
-SetLocalStorageAndDisplayScore()
+    UserChoice = 'Paper'
+    DecideWhoWin()
+    GenerateRandomChoice()
+    console.log(ComputerChoice)
+    SetLocalStorageAndDisplayScore()
 })
 Scissors.addEventListener('click', function(){
-UserChoice = 'Scissors'
-DecideWhoWin()
-GenerateRandomChoice()
-console.log(ComputerChoice)
-SetLocalStorageAndDisplayScore()
+    UserChoice = 'Scissors'
+    DecideWhoWin()
+    GenerateRandomChoice()
+    console.log(ComputerChoice)
+    SetLocalStorageAndDisplayScore()
 })
 Reset.addEventListener('click', function(){
-Score.wins = 0
-Score.ties = 0
-Score.losses = 0
-SetLocalStorageAndDisplayScore()     
+    Score.wins = 0
+    Score.ties = 0
+    Score.losses = 0
+    SetLocalStorageAndDisplayScore()     
+})
+let IsAutoPlaying = false
+let IntervalId;
+AutoPlay.addEventListener('click', function(){
+    if(!IsAutoPlaying){
+        IntervalId = setInterval(function(){
+        GenerateUserRandomChoice()
+        DecideWhoWin()
+        GenerateRandomChoice()
+        console.log(ComputerChoice)
+        SetLocalStorageAndDisplayScore()
+        AutoPlay.innerHTML='Stop auto play'
+        },1000)
+        IsAutoPlaying = true
+    }else{
+        AutoPlay.innerHTML='Auto play'
+        clearInterval(IntervalId)
+        IsAutoPlaying = false
+    }
 })
 console.log(ComputerChoice)
 localStorage.setItem('Score', JSON.stringify(Score))
