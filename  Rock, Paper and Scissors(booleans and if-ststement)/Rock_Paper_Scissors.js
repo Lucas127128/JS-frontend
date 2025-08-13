@@ -8,15 +8,21 @@ const DisplayScore2 = document.querySelector('.DisplayScore2')
 const DisplayScore3 = document.querySelector('.DisplayScore3')
 const DisplayResult = document.querySelector('.DisplayResult')
 const DisplayComputerMove = document.querySelector('.DisplayComputerMove')
+const ResetConfirm = document.querySelector('.ResetConfirm')
+const ConfirmReset = document.querySelector('.ConfirmReset')
+const DeclineReset = document.querySelector('.DeclineReset')
+const ResetConfirmMessage = document.querySelector('.ResetConfirmMessage')
 let RockPaperScissors = ""
 let randomIndex = 0
 let ComputerChoice = ''
-function GenerateRandomChoice() {
+let IsAutoPlaying = false
+let IntervalId;
+const GenerateRandomChoice=()=> {
     RockPaperScissors = ['Rock', 'Paper', 'Scissors'];
     randomIndex = Math.floor(Math.random() * RockPaperScissors.length);
     ComputerChoice = RockPaperScissors[randomIndex]
 }
-function GenerateUserRandomChoice(){
+const GenerateUserRandomChoice=()=>{
     RockPaperScissors = ['Rock', 'Paper', 'Scissors'];
     randomIndex = Math.floor(Math.random() * RockPaperScissors.length);
     UserChoice = RockPaperScissors[randomIndex]
@@ -35,7 +41,7 @@ if(Score === null){
     }
 }
 
-function DecideWhoWin(PlayerMove = UserChoice){
+const DecideWhoWin=(PlayerMove = UserChoice)=>{
     if(ComputerChoice===PlayerMove){
         Result = "Tie!"
     } else if(ComputerChoice==='Rock' && PlayerMove==='Scissors'){
@@ -61,10 +67,9 @@ function DecideWhoWin(PlayerMove = UserChoice){
     }
     }
 
-function SetLocalStorageAndDisplayScore(){
+const SetLocalStorageAndDisplayScore=()=>{
     localStorage.setItem('Score', JSON.stringify(Score))
     console.log(localStorage.getItem('Score'))
-    
     DisplayResult.innerHTML=`${Result}`
     if(ComputerChoice==='Rock'){
         DisplayComputerMove.innerHTML = `The computer move is ✊`
@@ -78,7 +83,12 @@ function SetLocalStorageAndDisplayScore(){
     DisplayScore2.innerHTML = `Losses:${Score.losses}`                        
     DisplayScore3.innerHTML = `Ties:${Score.ties}`
 }
-
+const RemoveConfirmMessage=()=>{
+    ResetConfirm.innerHTML = ``
+    ResetConfirmMessage.innerHTML=``
+    ConfirmReset.innerHTML=``
+    DeclineReset.innerHTML=``
+}
 Rock.addEventListener('click', function(){
     UserChoice = 'Rock'
     DecideWhoWin()
@@ -101,13 +111,21 @@ Scissors.addEventListener('click', function(){
     SetLocalStorageAndDisplayScore()
 })
 Reset.addEventListener('click', function(){
+    ConfirmReset.innerHTML=`<button class = "ConfirmReset" style="background-color: white;">Yes</button>`
+    DeclineReset.innerHTML=`<button class = "DeclineReset" style="background-color:#f2762e;">No</button>`
+    ResetConfirmMessage.innerHTML=`
+    Are you sure you want to reset the scores?`
+})
+ConfirmReset.addEventListener('click', function(){
     Score.wins = 0
     Score.ties = 0
     Score.losses = 0
-    SetLocalStorageAndDisplayScore()     
+    RemoveConfirmMessage()
+    SetLocalStorageAndDisplayScore()
 })
-let IsAutoPlaying = false
-let IntervalId;
+DeclineReset.addEventListener('click', function(){
+    RemoveConfirmMessage()
+})
 AutoPlay.addEventListener('click', function(){
     if(!IsAutoPlaying){
         IntervalId = setInterval(function(){

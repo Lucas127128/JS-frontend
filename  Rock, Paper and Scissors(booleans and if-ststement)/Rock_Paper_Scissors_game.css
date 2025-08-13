@@ -34,3 +34,26 @@ margin-left: 2px;
 .ScoreAndResult{
     color: white;
 }
+.ResetConfirmMessage{
+    color: white;
+}
+.ConfirmReset{
+    background-color: black;
+    color: red;
+    font-size: 28px;
+    border-radius: 13px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 60px; 
+    height: 40px; 
+}
+.DeclineReset{
+    background-color: black;
+    color: black;
+    font-size: 28px;
+    border-radius: 13px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 60px; 
+    height: 40px; 
+}

@@ -9,16 +9,16 @@ let TodoItemAndDate = [
 ]
 function DisplayTodoItems() {
     DisplayTheTodoList.innerHTML = ''
-    for(let i =0; i<TodoItemAndDate.length; i++) {
-         TodoItems = TodoItemAndDate[i].TheTodoItems
-         DueDates = TodoItemAndDate[i].TodoDate
+    TodoItemAndDate.forEach((TodoThings,index)=>{
+        TodoItems = TodoItemAndDate[index].TheTodoItems
+         DueDates = TodoItemAndDate[index].TodoDate
          DisplayTheTodoList.innerHTML += `
         <div class = "Todo-Row">
             <p>
                 <span class = "Todo-items">${TodoItems}</span>
                 <span class = "Due-Dates">${DueDates}</span>
                 <button class="DeleteTodoItems" onclick = "
-                DeleteTodoItems(${i})
+                DeleteTodoItems(${index})
                 ">
                 <span>Delete</span> 
                 </button>
@@ -26,6 +26,7 @@ function DisplayTodoItems() {
         </div>
         `
     }
+    )
 
 }
 function DeleteTodoItems(index){
